@@ -39,8 +39,8 @@ export default {
                 product_id,
                 qty: 1
             }
-            this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, {data}).then(resp=>{
-                console.log(resp)
+            this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, {data}).then(()=>{
+                alert('成功加入購物車!')
             })
         }
     },

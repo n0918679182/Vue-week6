@@ -1,4 +1,8 @@
 <template>
+    <div class="text-end">
+        <button class="btn btn-outline-danger" type="button" :disabled="loadingItem === 'deleteAll'"
+            @click="deleteAll">清空購物車</button>
+    </div>
     <table class="table align-middle">
         <thead>
             <tr>
@@ -66,7 +70,8 @@ export default {
                     address: ""
                 },
                 message: ""
-            }
+            },
+            loadingItem: false
         }
     },
     methods: {
@@ -93,6 +98,13 @@ export default {
                 this.getCarts();
                 this.loadingItem = '';
             }).catch(err => alert(err.response.data.message));
+        },
+        deleteAll() {
+            this.loadingItem = true;
+            this.$http.delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/carts`).then(resp => {
+                this.getCarts();
+                this.loadingItem = false;
+            }).catch(err=>alert(err.response.data.message));
         }
     },
     mounted() {

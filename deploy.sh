@@ -24,6 +24,7 @@ git commit -m 'deploy'
 # git push -f git@github.com:n0918679182/n0918679182.github.io.git main
 
 # if you are deploying to https://n0918679182.github.io/Vue-week6
-git push -f git@github.com:n0918679182/Vue-week6.git main:gh-pages
+git push -f https://github.com/n0918679182/Vue-week6.git main:gh-pages
+
 
 cd -
